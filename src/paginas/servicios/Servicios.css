@@ -1,0 +1,44 @@
+.servicios{
+    flex-direction: row;
+}
+
+.cajita-servicios{
+    height: 90%;
+    background-color: #171e29;
+}
+
+.valorCajita {
+    margin-top: 3%;
+}
+
+.histDeudas{
+    background-color: #1f2937;
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    margin: 20px;
+    margin-left: 35px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    border: 1px solid #3B475C;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.5);
+    overflow: auto;
+    display: flex;
+}
+
+.listDeudas{
+    list-style: none;
+    text-align: left;
+    border-radius: .5em;
+    padding: .85em;
+    text-decoration: none;
+    color: #F1F5F9;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: left;
+}

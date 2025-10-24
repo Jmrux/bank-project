@@ -1,0 +1,123 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body{
+  background-color: #111827;
+  color: #F1F5F9;
+}
+
+#sidenav{
+  box-sizing: border-box;
+  height: 100vh;
+  width: 240px;
+  padding: 5px 1em;
+  background-color: #1f2937;
+
+  position: sticky;
+  top: 0;
+  align-self: start;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  text-wrap: nowrap;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+}
+
+#sidenav.close{
+  padding: 5px;
+  width: 60px;
+}
+
+#sidenav ul li:first-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  .logo{
+    font-weight: 600;
+  }
+}
+
+#sidenav ul{
+  list-style: none;
+}
+
+#sidenav ul li.active a{
+  color: rgb(117, 160, 252);
+}
+
+#sidenav a, #sidenav .logo{
+  border-radius: .5em;
+  padding: .85em;
+  text-decoration: none;
+  color: #F1F5F9;
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#sidenav .logo{
+  background: linear-gradient(
+    to right,
+    rgb(250,78,10),
+    rgb(247, 12, 204),
+    rgb(0, 106, 255),
+    rgb(48, 248, 255),
+    rgb(250, 78, 10)
+  );
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradientAnimation 3s linear infinite;
+}
+
+@keyframes gradientAnimation{
+  0%{
+    background-position: 200% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+#sidenav svg {
+  flex-shrink: 0;
+}
+
+#sidebar a span{
+  flex-grow: 1;
+}
+
+#sidenav a:hover {
+  background-color: rgb(73, 90, 126);
+  transition: 0.3s;
+}
+
+#togglebarrita{
+  margin-left: auto;
+  padding: 1em;
+  border: none;
+  border-radius: .5em;
+  background: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  svg{
+    color: white;
+    font-size: 20px;
+  }
+}
+
+#togglebarrita:hover{
+  background-color: rgb(73, 90, 126);
+}
+

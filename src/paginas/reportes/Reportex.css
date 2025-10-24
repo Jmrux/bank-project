@@ -1,0 +1,26 @@
+.caja-reportes{
+    display: flex;
+    flex-direction: row;
+}
+
+.cajita-reportes{
+    width: 30%;
+    height: 90%;
+    text-align: center;
+}
+
+.cajita-historia{
+    width: 90%;
+    height: 85%;
+    text-align: left;
+    overflow: auto;
+    font-size: 20px;
+    margin-left: 23px;
+    margin-top: 30px;
+}
+
+.cajita-historia h5{
+    text-decoration: none;
+    margin-left: 10px;
+    margin-top: 10px;
+}

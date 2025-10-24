@@ -1,0 +1,48 @@
+.caja{
+    background-color: rgba(31, 41, 55, 0.2);
+    width:95%;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+    justify-content: space-evenly;
+    border: 1px solid #3B475C;
+}
+.cajaUserInfo{
+    width: 95%;
+    height: 100%;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 15px;
+    font-size: 40px;
+}
+
+.cajita{
+    background-color: #1f2937;
+    width: 47%;
+    height: 40%;
+    border-radius: 20px;
+    margin: 20px;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 10px;
+    border: 1px solid #3B475C;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.5);
+}
+
+.cajita h4{
+    margin-top: 10px;
+}
+
+.valor{
+    margin-top: 120px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
