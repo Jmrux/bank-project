@@ -33,8 +33,12 @@ const Servicios = () => {
          if(!confirmacion)
             alert('Operación Cancelada.')
          else{
+            let valFinal = tempDeuda-valPagar
+            if(valFinal < 0){
+               valFinal = 0;
+            }
             // HACE FALTA INCLUIR LA LOGICA QUE VERIFICA SI EL USUARIO SI TIENE SUFICIENTES FONDOS PARA PAGAR
-            alert('Se han abonado '+valPagar+'$ Exitosamente. \nEl restante de su Deuda es de: '+ (tempDeuda-valPagar))
+            alert('Se han abonado '+valPagar+'$ Exitosamente. \nEl restante de su Deuda es de: '+ valFinal)
          }
       }
    }

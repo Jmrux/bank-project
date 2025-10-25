@@ -1,0 +1,11 @@
+.gestionarInput {
+    width: 300px;
+    align-self: center;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid #3B475C;
+    background-color: #111827;
+    color: white;
+    padding-left: 10px;
+    font-size: 16px;
+}

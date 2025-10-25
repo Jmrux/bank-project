@@ -1,10 +1,13 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Principal.css'
 
 const Principal = () => {
+
+   const location = useLocation()
    return (
       <div className='container'>
          <div className='cajaUserInfo'>
-            Bienvenido! usuario
+            Bienvenido !
          </div>
          <div className='caja'>
             <div className='cajita'>

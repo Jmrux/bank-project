@@ -5,6 +5,9 @@
 .cajita-servicios{
     height: 90%;
     background-color: #171e29;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 .valorCajita {

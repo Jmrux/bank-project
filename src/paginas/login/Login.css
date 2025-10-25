@@ -1,0 +1,87 @@
+.caja-login{
+    width: 95vw;
+    height: 95vh;
+    margin-left: 30px;
+}
+
+.cajita-login{
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cajita-login input{
+    width: 60%;
+    align-self: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid #3B475C;
+    background-color: #111827;
+    color: white;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.cajita-login button{
+    width: 30%;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid #3B475C;
+    background-color: #111827;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cajita-login h6:first-of-type{
+    margin: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 23%;
+    align-self: center;
+}
+
+.cajita-login h6{
+    margin: 10px;
+    margin-top: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    width: 40%;
+    align-self: center;
+}
+
+.cajita-login span{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.logo{
+  background: linear-gradient(
+    to right,
+    rgb(250,78,10),
+    rgb(247, 145, 12),
+    rgb(255, 251, 0),
+    rgb(96, 255, 48),
+    rgb(10, 134, 250),
+    rgb(162, 10, 250),
+    rgb(250,78,10)
+  );
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradientAnimationL 3s linear infinite;
+}
+
+@keyframes gradientAnimationL{
+  0%{
+    background-position: 200% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}

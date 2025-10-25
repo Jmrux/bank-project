@@ -6,25 +6,51 @@ import Gestionar from './paginas/gestion/Gestionar'
 import Reportes from './paginas/reportes/Reportes'
 import Servicios from './paginas/servicios/Servicios'
 import Transacciones from './paginas/transacciones/Transacciones'
+import LayoutAuth from './components/layouts/AuthLayout'
+import LayoutPrincipal from './components/layouts/MainLayout'
+import Login from './paginas/login/Login'
+import Actualizar from './paginas/gestion/Actualizar'
 import './App.css'
 
 function App() {
   return (
-      <>
-      <BrowserRouter>
-      <Navbar/>
-      <main>
-          <Routes>
-            <Route path='/' element={<Principal />} />
-            <Route path='/transacciones' element={<Transacciones />} />
-            <Route path='/servicios' element={<Servicios />} />
-            <Route path='/movimientos' element={<Reportes />} />
-            <Route path='/gestionar' element={<Gestionar />} />
-          </Routes>
-        </main>
-      </BrowserRouter>
-      </>
-  )
+    <BrowserRouter>
+      <Routes>
+        
+        <Route element={<LayoutPrincipal />}>
+          <Route path="/dashboard" element={<Principal />} />
+          <Route path="/transacciones" element={<Transacciones />} />
+          <Route path="/servicios" element={<Servicios />} />
+          <Route path="/movimientos" element={<Reportes />} />
+          <Route path="/gestionar" element={<Gestionar />} />
+          <Route path="/gestionar/actualizar" element={<Actualizar />} />
+        </Route>
+
+        <Route element={<LayoutAuth />}>
+          <Route path="/" element={<Login />} />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
+// function App() {
+//   return (
+//       <>
+//       <BrowserRouter>
+//       <Navbar/>
+//       <main>
+//           <Routes>
+//             <Route path='/' element={<Principal />} />
+//             <Route path='/transacciones' element={<Transacciones />} />
+//             <Route path='/servicios' element={<Servicios />} />
+//             <Route path='/movimientos' element={<Reportes />} />
+//             <Route path='/gestionar' element={<Gestionar />} />
+//           </Routes>
+//         </main>
+//       </BrowserRouter>
+//       </>
+//   )
+// }
 
 export default App

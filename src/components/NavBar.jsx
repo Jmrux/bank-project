@@ -5,6 +5,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { LiaUserNinjaSolid } from "react-icons/lia";
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { FaUserAltSlash } from "react-icons/fa";
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
                 </button>
             </li>
             <li className='active'>
-                    <Link to='/'><GoHomeFill/>Principal</Link>
+                    <Link to='/dashboard'><GoHomeFill/>Principal</Link>
             </li>
             <li>
                 <Link to='/transacciones'><FaMoneyCheck/>Transacciones</Link>
@@ -34,6 +35,9 @@ const Navbar = () => {
             </li>                
             <li>
                    <Link to='/gestionar'><LiaUserNinjaSolid/>Tu Cuenta</Link>
+            </li>
+            <li className='abajo'>
+                   <Link to='/'><FaUserAltSlash/>Cerrar Sesion</Link>
             </li>
         </ul>
         </nav>
