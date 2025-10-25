@@ -9,11 +9,11 @@ const Login = () => {
         alert('Paila')   
     }
     const validarUsuario = () => {
-        if(user.password !== 'admin' && user.username !== 'admin'){
-            alert('Usuario o Contraseña Incorrectos')
-        } else {
+        if(user.password === 'admin' && user.username === 'admin' ){
             alert('Bienvenido ' +user.username)
             navigate('/dashboard', {state: user})
+        } else {
+            alert('Usuario o Contraseña Incorrectos')
         }
     }
     return(
