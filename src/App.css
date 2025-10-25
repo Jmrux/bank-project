@@ -77,7 +77,7 @@ body{
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: gradientAnimation 3s linear infinite;
+  animation: gradientAnimation 2s linear infinite;
 }
 
 @keyframes gradientAnimation{

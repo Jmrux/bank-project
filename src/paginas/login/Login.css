@@ -74,7 +74,7 @@
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: gradientAnimationL 3s linear infinite;
+  animation: gradientAnimationL 2s linear infinite;
 }
 
 @keyframes gradientAnimationL{
