@@ -5,12 +5,20 @@ import { useState } from 'react'
 const Login = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({username: '', password:''});
+    
     const a = () => {
         alert('Paila')   
     }
+
+    const signup = () => {
+        navigate('/signup')
+    }
+
+
     const validarUsuario = () => {
         if(user.password === 'admin' && user.username === 'admin' ){
             alert('Bienvenido ' +user.username)
+            localStorage.setItem("data", user.username)
             navigate('/dashboard', {state: user})
         } else {
             alert('Usuario o Contraseña Incorrectos')
@@ -24,7 +32,7 @@ const Login = () => {
                 <input type="text" placeholder='Usuario' onChange={ (e) => setUser({...user, username: e.target.value})}/>
                 <input type="password" placeholder='Contraseña' onChange={ (e) => setUser({...user, password: e.target.value})}/>
                 <h6 onClick={a}>Olvidé mi Contraseña.</h6>
-                <h6 onClick={a}>¿No tienes una cuenta? Registrate.</h6>
+                <h6 onClick={signup}>¿No tienes una cuenta? Registrate.</h6>
                 <button onClick={validarUsuario}>Iniciar Sesion</button>
             </div>
 

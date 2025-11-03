@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from './components/NavBar'
 import Principal from './paginas/principal/Principal'
 import Gestionar from './paginas/gestion/Gestionar'
 import Reportes from './paginas/reportes/Reportes'
@@ -9,7 +8,11 @@ import Transacciones from './paginas/transacciones/Transacciones'
 import LayoutAuth from './components/layouts/AuthLayout'
 import LayoutPrincipal from './components/layouts/MainLayout'
 import Login from './paginas/login/Login'
+import Register from './paginas/login/SignUp'
 import Actualizar from './paginas/gestion/Actualizar'
+import Transferir from './paginas/transacciones/Transferir'
+import Depositar from './paginas/transacciones/Depositar'
+import Retirar from './paginas/transacciones/Retirar'
 import './App.css'
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
         <Route element={<LayoutPrincipal />}>
           <Route path="/dashboard" element={<Principal />} />
           <Route path="/transacciones" element={<Transacciones />} />
+          <Route path="/transacciones/transferir" element={<Transferir />} />
+          <Route path="/transacciones/depositar" element={<Depositar />} />
+          <Route path="/transacciones/retirar" element={<Retirar />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/movimientos" element={<Reportes />} />
           <Route path="/gestionar" element={<Gestionar />} />
@@ -28,6 +34,7 @@ function App() {
 
         <Route element={<LayoutAuth />}>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
         </Route>
 
       </Routes>

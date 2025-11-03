@@ -7,7 +7,7 @@ const Principal = () => {
    return (
       <div className='container'>
          <div className='cajaUserInfo'>
-            Bienvenido !
+            Bienvenido ! {localStorage.getItem("data")}
          </div>
          <div className='caja'>
             <div className='cajita'>
