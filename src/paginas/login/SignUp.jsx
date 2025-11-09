@@ -25,6 +25,7 @@ const Login = () => {
                 <input type="text" placeholder='Nombre' onChange={ (e) => setUser({...user, username: e.target.value})}/>
                 <input type="text" placeholder='Contraseña' onChange={ (e) => setUser({...user, password: e.target.value})}/>
                 <input type="text" placeholder='Correo'/>
+                <input type="text" placeholder='Telefono'/>
                 <select name="cuenta" id="cuenta">
                     <option value="ahorro">Cuenta de Ahorros</option>
                     <option value="corriente">Cuenta Corriente</option>
