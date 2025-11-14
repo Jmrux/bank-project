@@ -1,8 +1,12 @@
 import Navbar from "../NavBar";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 const LayoutPrincipal = () => {
+  if (!localStorage.getItem("userData")) {
+    return <Navigate to="/" replace />;
+  }
   return (
+
     <>
       <Navbar />
       <main>

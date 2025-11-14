@@ -37,7 +37,7 @@ const Navbar = () => {
                    <Link to='/gestionar'><LiaUserNinjaSolid/>Tu Cuenta</Link>
             </li>
             <li className='abajo'>
-                   <Link to='/'><FaUserAltSlash/>Cerrar Sesion</Link>
+                   <Link to='/' onClick={() => localStorage.clear()}><FaUserAltSlash/>Cerrar Sesion</Link>
             </li>
         </ul>
         </nav>

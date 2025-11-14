@@ -1,48 +1,58 @@
+import { useNavigate } from 'react-router-dom'
 import './Servicios.css'
+import axios from 'axios'
+import { useState } from 'react'
 
 const Servicios = () => {
 
+   const data = JSON.parse(localStorage.getItem("userData"))
+   const deuda = JSON.parse(localStorage.getItem("userDeuda"))
+   const [estado, setEstado] = useState({estado: 'aprobado', numero_cuenta: data.numero_cuenta})
+   const navigate = useNavigate()
+
    const doPrestamo = () => {
-      let valPrest = 0;
-      valPrest = prompt('Ingrese la cantidad que desea prestar.')
-      if(valPrest == null || valPrest == '' || valPrest == 0){
-         alert('No se ingresó un valor a prestar.')
-      } else {
-         let confirmacion = confirm('Se aplicará un credito a su cuenta de: '+valPrest+'$\n¿Continuar?')
-         if(!confirmacion){
-            alert('Prestamo Cancelado. No se realizaron cambios.')
-         } else {
-            alert('Prestamo exitoso. Recuerde, es importante mantenerse al dia con los pagos de su credito.')
-         }
-      }
+      navigate('/servicios/prestamo')
    }
 
    const pagPrestamo = () => {
-      let tempDeuda = 1000;
-      let valPagar = prompt('Usted tiene una deuda acumulada de '+tempDeuda+'$\n¿Cuanto desea pagar?')
-      if(valPagar == 0 || valPagar == '' || valPagar == null){
-         alert("El usuario canceló la operación.")
-      } else {
-         let confirmacion = false;
-         if(valPagar >= tempDeuda){
-            confirmacion = confirm('El valor ingresado cubre la totalidad de la deuda. Se le cobrará solo el valor total de la deuda. \n¿Está de acuerdo?')
+      navigate('/servicios/prestamo/pagos')
+   }
+
+   const mostrarDeudas = () => {
+      let text = ''
+      for (let i=0; i < deuda.length; i++){
+         text += deuda[i].monto +'\nID: '+deuda[i].id+'\nFecha: '+ deuda[i].fecha_solicitud +'\nPlazo de: '+deuda[i].plazo+' meses' +'\nEstado: '+deuda[i].estado+'\n\n' + '---------------\n\n'
+      }
+      return text
+   }
+
+   const aprobarPrestamo = () => {
+      const idPrestamo = prompt('Ingrese el ID del prestamo para el cual desea solicitar aprobación.')
+      axios.put('http://localhost:3000/prestamo/'+idPrestamo, estado)
+      .then((response) => {
+         alert(response.data.message);
+      })
+      .catch((error) => {
+         if (error.response) {
+            alert(error.response.data.message);
+         } else {
+            alert("Error de conexión con el servidor");
          }
-         if(valPagar < tempDeuda ){
-            confirmacion = confirm('Se abonaran '+valPagar+' al total de su deuda. Podrá pagar el resto cuando quiera. \n¿Está de acuerdo?')
-         }
-         if(!confirmacion)
-            alert('Operación Cancelada.')
-         else{
-            let valFinal = tempDeuda-valPagar
-            if(valFinal < 0){
-               valFinal = 0;
-            }
-            // HACE FALTA INCLUIR LA LOGICA QUE VERIFICA SI EL USUARIO SI TIENE SUFICIENTES FONDOS PARA PAGAR
-            alert('Se han abonado '+valPagar+'$ Exitosamente. \nEl restante de su Deuda es de: '+ valFinal)
+      }); 
+   }
+
+   const totalDeuda = () => {
+      let total = 0;
+      for (let i = 0; i < deuda.length; i++){
+         if(deuda[i].estado == "aprobado"){
+            total += parseFloat(deuda[i].monto)
          }
       }
+      return total;
    }
-    return (
+
+
+   return (
          <div className='container'>
          <div className='cajaUserInfo'>
             Servicios
@@ -50,19 +60,15 @@ const Servicios = () => {
          <div className='caja caja-servicios'>
             <div className='cajita cajita-servicios'>
                <h4>Deudas</h4>
-               <div className='valor valorCajita'>---$</div>
+               <div className='valor valorCajita'>{totalDeuda()}$</div>
                <div className='histDeudas'>
                 <ul className='listDeudas'>
-                    <li>Prestamo 1</li>
-                    <h6>Detalles Prestamo</h6>
-                    <li>Deuda 2</li>
-                    <h6>Detalles Deuda</h6>
-                    <li>Prestamo 3</li>
-                    <h6>Detalles Prestamo</h6>
+                    <li>{mostrarDeudas()}</li>
                 </ul>
                </div>
             </div>
             <button className='btnTrans' onClick={doPrestamo}>Hacer Prestamo</button>
+            <button className='btnTrans' onClick={aprobarPrestamo}>Solicitar Aprobación</button>
             <button className='btnTrans' onClick={pagPrestamo}>Pagar Deudas</button>
          </div>
          

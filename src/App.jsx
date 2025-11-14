@@ -13,6 +13,8 @@ import Actualizar from './paginas/gestion/Actualizar'
 import Transferir from './paginas/transacciones/Transferir'
 import Depositar from './paginas/transacciones/Depositar'
 import Retirar from './paginas/transacciones/Retirar'
+import Prestar from './paginas/servicios/Prestar'
+import Pagar from './paginas/servicios/PagarPrestamo'
 import './App.css'
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path="/transacciones/depositar" element={<Depositar />} />
           <Route path="/transacciones/retirar" element={<Retirar />} />
           <Route path="/servicios" element={<Servicios />} />
+          <Route path="/servicios/prestamo" element={<Prestar />} />
+          <Route path="/servicios/prestamo/pagos" element={<Pagar />} />
           <Route path="/movimientos" element={<Reportes />} />
           <Route path="/gestionar" element={<Gestionar />} />
           <Route path="/gestionar/actualizar" element={<Actualizar />} />

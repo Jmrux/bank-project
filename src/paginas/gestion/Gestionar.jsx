@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Gestionar = () => {
-    const navigate = useNavigate();
-    const actualizar = ()=>{
-
+   const datos = JSON.parse(localStorage.getItem("userData"))
+   const [user, setUser] = useState({nombre: '', email:'', contrasena:'', numero_cuenta: datos.numero_cuenta, tipo: datos.tipo, saldo: datos.saldo});
+   const navigate = useNavigate();
+   const actualizar = ()=>{
         navigate("/gestionar/actualizar")
-    }
+   }
 
   return (
          <div className='container'>
@@ -19,11 +21,13 @@ const Gestionar = () => {
                <div className='histDeudas'>
                 <ul className='listDeudas'>
                     <li>Nombre del titular</li>
-                    <h6>nombre</h6>
-                    <li>Numero de cuenta</li>
-                    <h6>Cuenta ***3423</h6>
+                    <h6>{datos.nombre}</h6>
+                    <li>Número de cuenta</li>
+                    <h6>{datos.numero_cuenta}</h6>
                     <li>Saldo disponible</li>
-                    <h6>Saldo ######</h6>
+                    <h6>{datos.saldo}</h6>
+                    <li>Correo</li>
+                    <h6>{datos.email}</h6>
                 </ul>
                </div>
             </div>

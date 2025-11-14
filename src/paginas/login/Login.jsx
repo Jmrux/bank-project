@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react'
+import axios from 'axios'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,15 +15,20 @@ const Login = () => {
         navigate('/signup')
     }
 
-
     const validarUsuario = () => {
-        if(user.password === 'admin' && user.username === 'admin' ){
-            alert('Bienvenido ' +user.username)
-            localStorage.setItem("data", user.username)
-            navigate('/dashboard', {state: user})
-        } else {
-            alert('Usuario o Contraseña Incorrectos')
-        }
+        axios.post('http://localhost:3000/login', user)
+        .then(({ data }) => {
+            if(data == 'Usuario no existe'){
+                alert(data)
+            } else {
+                alert('Bienvenido ' + data.nombre + '!')
+                localStorage.setItem('userData', JSON.stringify(data))
+                navigate('/dashboard')
+            }
+        })
+        .catch(({response}) => {
+            console.log(response.data)
+        })
     }
     return(
             <div className="caja caja-login">
