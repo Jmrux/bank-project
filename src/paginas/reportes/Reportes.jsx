@@ -6,9 +6,9 @@ const Reportes = () => {
     
     const getValores = (value) => {
         let text = '';
-        for (let i=0; i < dataTrans.length; i++){
-            if(dataTrans[i].tipo === value){
-                text += 'Monto: '+dataTrans[i].monto +' Fecha: '+ dataTrans[i].fecha +'\n\n'
+        for (let dato of dataTrans){
+            if(dato.tipo === value){
+                text += 'Monto: '+dato.monto +' Fecha: '+ dato.fecha +'\n\n'
             }
         }
         return text;
@@ -16,8 +16,8 @@ const Reportes = () => {
 
     const mostrarDeudas = () => {
       let text = ''
-      for (let i=0; i < deuda.length; i++){
-         text += deuda[i].monto +'\nFecha: '+ deuda[i].fecha_solicitud +'\nPlazo de: '+deuda[i].plazo+' meses' +'\nEstado: '+deuda[i].estado+'\n\n' + '--------------------------------------------------------\n\n'
+      for (let dato of deuda){
+         text += dato.monto +'\nFecha: '+ dato.fecha_solicitud +'\nPlazo de: '+dato.plazo+' meses' +'\nEstado: '+dato.estado+'\n\n' + '--------------------------------------------------------\n\n'
       }
       return text 
    }

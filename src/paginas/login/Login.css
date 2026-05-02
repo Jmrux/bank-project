@@ -60,21 +60,32 @@
     cursor: pointer;
 }
 
-.cajita-login h6:first-of-type, .cajita-signup h6:first-of-type{
-    margin: 20px;
-    font-size: 12px;
-    cursor: pointer;
+.cajita-login h6:first-of-type, .cajita-signup h6:first-of-type {
+    margin: 5px;
+    margin-top: 10px;
+    font-size: 13px;
     width: 23%;
     align-self: center;
 }
 
-.cajita-login h6, .cajita-signup h6{
-    margin: 10px;
+.cajita-login h6, .cajita-signup h6 {
+    margin: 5px;
     margin-top: 5px;
-    font-size: 12px;
-    cursor: pointer;
+    font-size: 13px;
     width: 40%;
     align-self: center;
+}
+
+.cajita-signup h6:first-of-type {
+    margin-bottom: -10px;
+}
+
+.cajita-login a, .cajita-signup a {
+    color: white;
+}
+
+.cajita-login a:hover, .cajita-signup a:hover {
+    color: rgb(43, 173, 212);
 }
 
 .cajita-login span, .cajita-signup span{

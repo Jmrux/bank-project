@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom'
 import { GoHomeFill } from "react-icons/go";
-import { FaMoneyCheck } from "react-icons/fa";
-import { GiReceiveMoney } from "react-icons/gi";
+import { FaMoneyCheck, FaUserAltSlash } from "react-icons/fa";
+import { GiReceiveMoney, GiHamburgerMenu } from "react-icons/gi";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { LiaUserNinjaSolid } from "react-icons/lia";
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { FaUserAltSlash } from "react-icons/fa";
 import { useState } from 'react';
 
 const Navbar = () => {

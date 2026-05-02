@@ -7,13 +7,9 @@ const Actualizar = () => {
    const [user, setUser] = useState({nombre: '', email:'', contrasena:'', numero_cuenta: datos.numero_cuenta, tipo: datos.tipo, saldo: datos.saldo});
    const [pass, setPass] = useState('')
    const validacion = () => {
-      if(pass !== datos.contrasena){
-         alert('La constraseña actual es incorrecta.')
-      } else {
+      if(pass === datos.contrasena){
          let userChoice = confirm('Se actualizaran sus datos personales. \n¿Continuar?')
-            if(!userChoice){
-               alert('Acción Cancelada.')
-            } else {
+            if(userChoice){
                if(user.contrasena == '' || user.contrasena == undefined){
                   user.contrasena = datos.contrasena
                }
@@ -35,9 +31,15 @@ const Actualizar = () => {
                      alert("Error de conexión con el servidor");
                   }
                });
+               
+            } else {
+               alert('Acción Cancelada.')
             }
-         }
+         
+      } else {
+         alert('La constraseña actual es incorrecta.')
       }
+   }
 
   return (
          <div className='container'>

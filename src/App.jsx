@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Principal from './paginas/principal/Principal'
 import Gestionar from './paginas/gestion/Gestionar'
@@ -15,6 +14,7 @@ import Depositar from './paginas/transacciones/Depositar'
 import Retirar from './paginas/transacciones/Retirar'
 import Prestar from './paginas/servicios/Prestar'
 import Pagar from './paginas/servicios/PagarPrestamo'
+import Recovery from './paginas/login/Recovery'
 import './App.css'
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
 
         <Route element={<LayoutAuth />}>
           <Route path="/" element={<Login />} />
+          <Route path="/recovery" element={<Recovery />} />
           <Route path="/signup" element={<Register />} />
         </Route>
 
@@ -45,23 +46,5 @@ function App() {
     </BrowserRouter>
   );
 }
-// function App() {
-//   return (
-//       <>
-//       <BrowserRouter>
-//       <Navbar/>
-//       <main>
-//           <Routes>
-//             <Route path='/' element={<Principal />} />
-//             <Route path='/transacciones' element={<Transacciones />} />
-//             <Route path='/servicios' element={<Servicios />} />
-//             <Route path='/movimientos' element={<Reportes />} />
-//             <Route path='/gestionar' element={<Gestionar />} />
-//           </Routes>
-//         </main>
-//       </BrowserRouter>
-//       </>
-//   )
-// }
 
 export default App

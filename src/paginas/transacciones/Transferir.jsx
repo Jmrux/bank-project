@@ -15,8 +15,7 @@ const Transacciones = () => {
     const accionTransferir = () => {
         if(transfer.receptor_id == null || transfer.receptor_id == ''){
             alert("El usuario no ingresó ningun número de cuenta")
-        } else {
-            if(transfer.monto == null || transfer.monto == ''){
+        } else if(transfer.monto == null || transfer.monto == ''){
                 alert("No ingresaste ningun valor")
             } else {
                 let confirmacion = confirm('Se van a transferir: ' + transfer.monto + '$\nA la cuenta de número: '+transfer.receptor_id);
@@ -37,7 +36,6 @@ const Transacciones = () => {
                 }
             }
         }
-    }
     return (
         <div className='container'>
          <div className='cajaUserInfo'>

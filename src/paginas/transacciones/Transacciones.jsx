@@ -1,5 +1,5 @@
 import './Transacciones.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Transacciones = () => {
     const navigate = useNavigate();

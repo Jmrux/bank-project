@@ -6,14 +6,6 @@ import axios from 'axios'
 const Login = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({username: '', password:''});
-    
-    const a = () => {
-        alert('Paila')   
-    }
-
-    const signup = () => {
-        navigate('/signup')
-    }
 
     const validarUsuario = () => {
         axios.post('http://localhost:3000/login', user)
@@ -35,10 +27,16 @@ const Login = () => {
             <div className="cajita cajita-login">
                 <span className='logo'>EsteBanquito</span>
                 <h4>Iniciar Sesión</h4>
-                <input type="text" placeholder='Usuario' onChange={ (e) => setUser({...user, username: e.target.value})}/>
+                <input type="text" placeholder='Correo' onChange={ (e) => setUser({...user, username: e.target.value})}/>
                 <input type="password" placeholder='Contraseña' onChange={ (e) => setUser({...user, password: e.target.value})}/>
-                <h6 onClick={a}>Olvidé mi Contraseña.</h6>
-                <h6 onClick={signup}>¿No tienes una cuenta? Registrate.</h6>
+                <h6>
+                    ¿Olvidaste tu contraseña?{' '}
+                    <a href="/recovery">Recuperala</a>
+                </h6>
+                <h6>
+                    ¿No tienes una cuenta?{' '}
+                    <a href="/signup"> Registrate</a>
+                </h6>
                 <button onClick={validarUsuario}>Iniciar Sesion</button>
             </div>
 

@@ -7,7 +7,7 @@ const Servicios = () => {
 
    const data = JSON.parse(localStorage.getItem("userData"))
    const deuda = JSON.parse(localStorage.getItem("userDeuda"))
-   const [estado, setEstado] = useState({estado: 'aprobado', numero_cuenta: data.numero_cuenta})
+   const [estado] = useState({estado: 'aprobado', numero_cuenta: data.numero_cuenta})
    const navigate = useNavigate()
 
    const doPrestamo = () => {
@@ -20,8 +20,8 @@ const Servicios = () => {
 
    const mostrarDeudas = () => {
       let text = ''
-      for (let i=0; i < deuda.length; i++){
-         text += deuda[i].monto +'\nID: '+deuda[i].id+'\nFecha: '+ deuda[i].fecha_solicitud +'\nPlazo de: '+deuda[i].plazo+' meses' +'\nEstado: '+deuda[i].estado+'\n\n' + '---------------\n\n'
+      for (let dato of deuda){
+         text += dato.monto +'\nID: '+dato.id+'\nFecha: '+ dato.fecha_solicitud +'\nPlazo de: '+dato.plazo+' meses' +'\nEstado: '+dato.estado+'\n\n' + '---------------\n\n'
       }
       return text
    }
@@ -43,9 +43,9 @@ const Servicios = () => {
 
    const totalDeuda = () => {
       let total = 0;
-      for (let i = 0; i < deuda.length; i++){
-         if(deuda[i].estado == "aprobado"){
-            total += parseFloat(deuda[i].monto)
+      for (let dato of deuda){
+         if(dato.estado == "aprobado"){
+            total += Number.parseFloat(dato.monto)
          }
       }
       return total;

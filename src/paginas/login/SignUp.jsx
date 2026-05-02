@@ -1,15 +1,9 @@
-import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react'
 import axios from 'axios'
 
-const Login = () => {
-    const navigate = useNavigate();
+const Signup = () => {
     const [user, setUser] = useState({nombre: '', email:'', contrasena:'', numero_cuenta:'', tipo:'', saldo:0});
-
-    const login = () => {
-        navigate('/')
-    }
 
     const registrarUsuario = () => {
         axios.post('http://localhost:3000/signup', user)
@@ -38,8 +32,10 @@ const Login = () => {
                     <option value="ahorros">Cuenta de Ahorros</option>
                     <option value="corriente">Cuenta Corriente</option>
                 </select>
-                <h6></h6>
-                <h6 onClick={login}>¿Ya tienes una Cuenta? Inicia Sesión.</h6>
+                <h6>
+                    ¿Ya tienes una Cuenta?{' '}
+                    <a href="/">Inicia Sesión</a>
+                </h6>
                 <button onClick={registrarUsuario}>Registrarse</button>
             </div>
 
@@ -47,4 +43,4 @@ const Login = () => {
     )   
 }
 
-export default Login;
+export default Signup;

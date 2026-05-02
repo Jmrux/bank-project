@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Gestionar = () => {
    const datos = JSON.parse(localStorage.getItem("userData"))
-   const [user, setUser] = useState({nombre: '', email:'', contrasena:'', numero_cuenta: datos.numero_cuenta, tipo: datos.tipo, saldo: datos.saldo});
    const navigate = useNavigate();
    const actualizar = ()=>{
         navigate("/gestionar/actualizar")
