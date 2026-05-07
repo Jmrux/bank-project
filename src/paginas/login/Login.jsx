@@ -3,24 +3,31 @@ import './Login.css'
 import { useState } from 'react'
 import axios from 'axios'
 
-const Login = () => {
+export const Login = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({username: '', password:''});
 
     const validarUsuario = () => {
-        axios.post('http://localhost:3000/login', user)
-        .then(({ data }) => {
-            if(data == 'Usuario no existe'){
-                alert(data)
-            } else {
-                alert('Bienvenido ' + data.nombre + '!')
-                localStorage.setItem('userData', JSON.stringify(data))
-                navigate('/dashboard')
-            }
-        })
-        .catch(({response}) => {
-            console.log(response.data)
-        })
+        if(user.username == ''){
+            alert("No se ingresó un correo.")
+        }
+        else if(user.password == ''){
+            alert("No se ingresó una contraseña.")
+        } else {
+            axios.post('http://localhost:3000/login', user)
+            .then(({ data }) => {
+                if(data == 'Usuario no existe'){
+                    alert(data)
+                } else {
+                    alert('Bienvenido ' + data.nombre + '!')
+                    localStorage.setItem('userData', JSON.stringify(data))
+                    navigate('/dashboard')
+                }
+            })
+            .catch(({response}) => {
+                console.log(response.data)
+            })
+        }
     }
     return(
             <div className="caja caja-login">

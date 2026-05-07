@@ -3,7 +3,7 @@ import '../transacciones/Transacciones.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-const PagarPrestamo = () => {
+export const PagarPrestamo = () => {
     const navigate = useNavigate();
     const data = JSON.parse(localStorage.getItem("userData"))
     const [pagos, setPagos] = useState({prestamo_id: '', usuario_id: data.id, cuenta_id: data.numero_cuenta})
@@ -13,6 +13,9 @@ const PagarPrestamo = () => {
     }
 
     const accionPagar = () => {
+        if(pagos.prestamo_id == ''){
+            alert('No ingresaste el ID de ningun prestamo.')
+        } else {
         axios.post('http://localhost:3000/prestamo/pago', pagos)
         .then((response) => {
             alert(response.data.message);
@@ -23,7 +26,7 @@ const PagarPrestamo = () => {
             } else {
                 alert("Error de conexión con el servidor");
             }
-        }); 
+        })}
     }
     return (
         <div className='container'>

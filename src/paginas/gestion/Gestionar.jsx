@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Gestionar = () => {
+export const Gestionar = () => {
    const datos = JSON.parse(localStorage.getItem("userData"))
    const navigate = useNavigate();
    const actualizar = ()=>{
@@ -29,7 +29,7 @@ const Gestionar = () => {
                 </ul>
                </div>
             </div>
-            <button className='btnTrans'onClick={actualizar} >Actualizar datos</button>
+            <button className='btnTrans'onClick={actualizar}>Actualizar</button>
 
          </div>
 

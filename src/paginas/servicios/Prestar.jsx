@@ -3,7 +3,7 @@ import '../transacciones/Transacciones.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Prestamos = () => {
+export const Prestamos = () => {
     const navigate = useNavigate();
     const data = JSON.parse(localStorage.getItem("userData"))
     const [presta, setPresta] = useState({usuario_id: data.id, monto: 0, plazo: 0})
@@ -12,8 +12,17 @@ const Prestamos = () => {
         navigate('/servicios');
     }
 
+    const validarValoresInvalidos = () => {
+        if(presta.monto == 0) 
+            return true
+        if(presta.plazo > 12 || presta.plazo < 3) 
+            return true
+    }
+
     const accionPrestar = () => {
-        if(confirm("Va a solicitar un prestamo de: "+presta.monto+'\n¿Continuar?')){
+        if(validarValoresInvalidos())
+            alert('Los datos ingresados para el prestamo son invalidos.')
+        else if(confirm("Va a solicitar un prestamo de: "+presta.monto+'\n¿Continuar?')){
             axios.post('http://localhost:3000/prestamo', presta)
             .then((response) => {
                 alert(response.data.message);
@@ -25,8 +34,9 @@ const Prestamos = () => {
                     alert("Error de conexión con el servidor");
                 }
             });
-        }
-        
+        } else {
+            alert('Prestamo cancelado')
+        }  
     }
     return (
         <div className='container'>

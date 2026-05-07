@@ -4,11 +4,21 @@ import axios from 'axios'
 
 export const Recovery = () => {
     const [user, setUser] = useState({username: '', cuenta:''});
+
+    const validarDatosInvalidos = () => {
+        if(user.username == '') return true
+        if(user.cuenta == '') return true
+    }
+    
     const recuperarContra = () => {
+        if(validarDatosInvalidos()){
+            alert('Faltan datos por ingresar.')
+        } else {
         axios.post('http://localhost:3000/recovery', user)
          .then(({ data }) => {
             if(data == 'Datos erroneos.'){
                 alert(data)
+                console.log(data)
             } else {
                 const newPass = prompt("Usuario encontrado. Por favor ingrese una nueva contraseña.")
                 if(newPass == '')
@@ -26,7 +36,7 @@ export const Recovery = () => {
                     })
                 }
             }
-         })
+         })}
     }
 
     return(

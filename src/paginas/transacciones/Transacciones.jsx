@@ -1,7 +1,7 @@
 import './Transacciones.css'
 import { useNavigate } from 'react-router-dom'
 
-const Transacciones = () => {
+export const Transacciones = () => {
     const navigate = useNavigate();
     const accionTransferir = () => {
         navigate('/transacciones/transferir')

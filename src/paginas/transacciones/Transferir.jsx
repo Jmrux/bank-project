@@ -3,7 +3,7 @@ import './Transacciones.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-const Transacciones = () => {
+export const Transferir = () => {
     const navigate = useNavigate();
     const data = JSON.parse(localStorage.getItem("userData"))
     const [transfer, setTransfer] = useState({emisor_id: data.numero_cuenta, receptor_id: '', monto: 0})
@@ -52,4 +52,4 @@ const Transacciones = () => {
     )
 }
 
-export default Transacciones
+export default Transferir

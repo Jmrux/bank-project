@@ -2,25 +2,32 @@ import './Gestionar.css'
 import { useState } from 'react'
 import axios from 'axios'
 
-const Actualizar = () => {
+export const Actualizar = () => {
    const datos = JSON.parse(localStorage.getItem("userData"))
    const [user, setUser] = useState({nombre: '', email:'', contrasena:'', numero_cuenta: datos.numero_cuenta, tipo: datos.tipo, saldo: datos.saldo});
    const [pass, setPass] = useState('')
+
+   const datosIngresados = () => {
+      return (user.contrasena == '' && user.nombre == '' && user.email == '')
+   }
+
    const validacion = () => {
-      if(pass === datos.contrasena){
+      if(datosIngresados()){
+         alert('No realizaste ningun cambio.')
+      } else if(pass === datos.contrasena){
          let userChoice = confirm('Se actualizaran sus datos personales. \n¿Continuar?')
-            if(userChoice){
-               if(user.contrasena == '' || user.contrasena == undefined){
+         if(userChoice){
+            if(user.contrasena == '' || user.contrasena == undefined){
                   user.contrasena = datos.contrasena
-               }
-               if(user.nombre == '' || user.nombre == undefined){
+            }
+            if(user.nombre == '' || user.nombre == undefined){
                   user.nombre = datos.nombre
-               }
-               if(user.email == '' || user.email == undefined){
+            }
+            if(user.email == '' || user.email == undefined){
                   user.email = datos.email
-               }
-               axios.put('http://localhost:3000/usuarios/'+datos.id, user)
-               .then((response) => {
+            }
+            axios.put('http://localhost:3000/usuarios/'+datos.id, user)
+            .then((response) => {
                   alert(response.data.message);
                   alert('Por favor vuelva a iniciar sesión.')
                })
@@ -31,13 +38,13 @@ const Actualizar = () => {
                      alert("Error de conexión con el servidor");
                   }
                });
-               
             } else {
                alert('Acción Cancelada.')
             }
+      
          
       } else {
-         alert('La constraseña actual es incorrecta.')
+         alert('La contraseña actual es incorrecta.')
       }
    }
 
@@ -58,8 +65,8 @@ const Actualizar = () => {
                      <input type="text" className='gestionarInput' onChange={(e) => setUser({...user, contrasena: e.target.value})}/>
                     <li>Nombre del titular</li>
                     <input type="text" className='gestionarInput' placeholder={datos.nombre} onChange={(e) => setUser({...user, nombre: e.target.value})}/>
-                    <li>Confirmar contraseña actual</li>
-                     <input type="password" className='gestionarInput' onChange={(e) => setPass(e.target.value)}/>
+                    <li>Confirmar contraseña actual*</li>
+                     <input type="password" className='gestionarInput' placeholder='Ingresa tu contraseña actual' onChange={(e) => setPass(e.target.value)}/>
                 </ul>
                </div>
             </div>

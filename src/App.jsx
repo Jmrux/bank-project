@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Principal from './paginas/principal/Principal'
 import Gestionar from './paginas/gestion/Gestionar'
 import Reportes from './paginas/reportes/Reportes'
@@ -19,7 +19,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
+    
       <Routes>
         
         <Route element={<LayoutPrincipal />}>
@@ -43,7 +43,7 @@ function App() {
         </Route>
 
       </Routes>
-    </BrowserRouter>
+    
   );
 }
 
